@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq操作HTML元素</title>
+</head>
+<body>
+<div>111</div>
+<script src="/js/jquery.js"></script>
+<script>
+    /* 操作class类名 */
+    $("div").addClass("box"); //增加的操作
+    $("div").addClass("box1 box2"); //增加多个 空格隔开就行
+    $(".box2").addClass("box9"); //css选择器，其中一个class名称也能命中
+    $("div").removeClass("box2"); //移除传入的class名——box2
+    $("div").removeClass(); //移除全部
+    /*
+    * toggleClass("属性名", "属性值"),
+    * 无则增，有则删
+    *  */
+    $("div").toggleClass("box");
+    $("div").toggleClass("box3");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each</title>
+</head>
+<body>
+<div class="box">aa</div>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+</ul>
+<script src="/js/jquery.js"></script>
+<script>
+    $("ul li").each(function(i){//默认下标
+        console.log("js打印下标:", i);
+        console.log("jq获取内容:", $(this).text()); //jq获取内容
+        console.log("js获取内容:", this.innerHTML); //js获取内容
+        console.log("jq打印下标", $(this).index()); //jq打印下标
+    })
+</script>
+</body>
+</html>

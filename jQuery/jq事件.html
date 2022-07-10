@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" typeof="javascript">
+    <title>jq事件</title>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+</ul>
+<script src="/js/jquery.js"></script>
+<script>
+    // jq-鼠标滑入mouseenter
+    $("#box > li:nth-child(1)").mouseenter(()=>{
+        console.log("滑进来了")
+    });
+    // jq-鼠标滑出mouseleave
+    $("#box > li:nth-child(2)").mouseleave(()=>{
+        console.log("滑出去了")
+    });
+    // jq-鼠标滑入或滑出hover
+    $("#box > li:nth-child(3)").hover(()=>{
+        console.log("hover")
+    });
+    // jq-鼠标滑入或滑出hover，写两个的话，第一个事件是滑入，第二个是滑出
+    $("#box > li:nth-child(4)").hover(()=>{
+        console.log("滑进来了")
+    }, ()=>{
+        console.log("滑出去了")
+    });
+    // 尝试绑定两个相同事件--同时打印了hover和hover*2
+    $("#box > li:nth-child(3)").hover(()=>{
+        console.log("hover*2")
+    });
+    //用on绑定一个事件（on绑定事件方法-无法使用hover？？？）
+    $("#box > li:nth-child(5)").on("mouseenter", ()=>{
+        console.log("第五元素：绑定单一事件-滑入")
+    })
+    // 或多个事件
+    $("#box > li:nth-child(5)").on({
+        "click": ()=>{//点击事件
+            console.log("第五元素：绑定多个事件-点击")
+        },
+        "mouseleave": ()=>{//hover事件
+            console.log("第五元素：绑定多个事件-滑出")
+        }
+    })
+    //事件的移除
+    $("#box > li:nth-child(5)").off("click"); //移除点击事件
+    $("#box > li:nth-child(5)").off(); //移除所有事件
+</script>
+</body>
+</html>
